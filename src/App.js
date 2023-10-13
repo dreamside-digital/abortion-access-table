@@ -1,25 +1,49 @@
-import logo from './logo.svg';
-import './App.css';
+import { createTheme, ThemeProvider, useTheme } from '@mui/material';
+import { frFR, enUS } from '@mui/material/locale';
+import Table from './Table';
 
-function App() {
+
+const App = (props) => {
+  const theme = {
+    palette: {
+      primary: {
+        main: '#ff9800'
+      },
+      background: {
+        default: '#ffffff'
+      },
+      secondary: {
+        main: '#eefcfa'
+      }
+    },
+    typography: {
+      fontFamily: [
+        'Inter',
+        '"Helvetica Neue"',
+        'Arial',
+        'sans-serif'
+      ].join(','),
+    },
+    components: {
+      MuiTableRow: {
+        styleOverrides: {
+          root: {
+            '&.MuiTableRow-root:hover td': { 
+                backgroundColor: '#eefcfa',
+            }
+          } 
+        }
+      }
+    }
+  }
+
+  const locale = props.locale === "fr" ? frFR : enUS
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ThemeProvider theme={createTheme(theme, locale)}>
+      <Table {...props} />
+    </ThemeProvider>
   );
-}
+};
 
 export default App;
