@@ -87,9 +87,10 @@ function Table({ locale, initData }) {
       <MaterialReactTable
         columns={columns}
         data={data}
-        enableRowSelection={false}
         enableColumnOrdering
         enableRowOrdering
+        enableClickToCopy
+        enableRowSelection={false}
         enableColumnFilters={false}
         enableDensityToggle={false}
         enablePagination={false}
