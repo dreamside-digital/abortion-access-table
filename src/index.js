@@ -7,47 +7,50 @@ import reportWebVitals from './reportWebVitals';
 const initData = [
   {
     province: 'AB',
-    totalProviders: 11,
+    totalproviders: 11,
     hospitals: 1,
     clinics: 10,
     surgical: 4,
     medical: 7,
     urban: 8,
     rural: 3,
-    gestationalLimit: 24,
+    gestationallimit: 24,
     cpc: 21
   },
   {
     province: 'BC',
-    totalProviders: 24,
+    totalproviders: 24,
     hospitals: 10,
     clinics: 14,
     surgical: 13,
     medical: 12,
     urban: 10,
     rural: 14,
-    gestationalLimit: 28,
+    gestationallimit: 28,
     cpc: 26
   },
   {
     province: 'MB',
-    totalProviders: 4,
+    totalproviders: 4,
     hospitals: 2,
     clinics: 2,
     surgical: 3,
     medical: 4,
     urban: 2,
     rural: 2,
-    gestationalLimit: 20,
+    gestationallimit: 20,
     cpc: 5
   },
 ];
 
+const dataSource = document.querySelectorAll('#jurisdictions-list .jurisdiction-item');
+const tableData = [...dataSource].map(el => Object.assign({}, el.dataset))
+console.log({tableData})
 
 const root = ReactDOM.createRoot(document.getElementById('abortion-access-table'));
 root.render(
   <React.StrictMode>
-    <App locale={'en'} initData={initData} />
+    <App locale={'en'} initData={tableData} />
   </React.StrictMode>
 );
 

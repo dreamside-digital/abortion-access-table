@@ -9,43 +9,73 @@ function Table({ locale, initData }) {
     () => [
       {
         accessorKey: 'province',
-        header: 'Province/Territory',
+        header: 'Province/ Territory',
+        size: 60,
+        maxSize: 100,
+        muiTableBodyCellProps: {
+          sx: {
+            fontWeight: 600,
+            letterSpacing: '1px',
+            fontSize: '0.8rem',
+            color: '#0c0f0a',
+            borderRight: '1px solid #e0e0e0',
+            textAlign: 'center',
+          }
+        }
       },
       {
-        accessorKey: 'totalProviders',
+        accessorKey: 'totalproviders',
         header: 'Total providers',
+        size: 60,
+        maxSize: 100,
       },
       {
         accessorKey: 'hospitals',
         header: 'Hospitals providing abortion care',
+        size: 60,
+        maxSize: 100,
       },
       {
         accessorKey: 'clinics',
         header: 'Clinics providing abortion care',
+        size: 60,
+        maxSize: 100,
       },
       {
         accessorKey: 'surgical',
         header: 'Surgical providers',
+        size: 60,
+        maxSize: 100,
       },
       {
         accessorKey: 'medical',
         header: 'Medical providers',
+        size: 60,
+        maxSize: 100,
       },
       {
         accessorKey: 'urban',
         header: 'Urban providers',
+        size: 60,
+        maxSize: 100,
       },
       {
         accessorKey: 'rural',
         header: 'Rural providers',
+        size: 60,
+        maxSize: 100,
       },
       {
-        accessorKey: 'gestationalLimit',
-        header: 'Gestational limit (weeks)',
+        accessorKey: 'gestationallimit',
+        header: 'Gestational limit',
+        size: 60,
+        maxSize: 100,
       },
       {
         accessorKey: 'cpc',
         header: 'Crisis pregnancy centres',
+        size: 60,
+        maxSize: 100,
       },
     ],
     [],
@@ -60,6 +90,7 @@ function Table({ locale, initData }) {
         enableRowSelection={false}
         enableColumnOrdering
         enableRowOrdering
+        enableColumnFilters={false}
         enableDensityToggle={false}
         enablePagination={false}
         enableTopToolbar={false}
@@ -72,6 +103,47 @@ function Table({ locale, initData }) {
             border: '1px solid #0c0f0a',
             borderRadius: '0.25rem',
             overflow: 'hidden',
+          }
+        }}
+        muiTableHeadCellProps={{
+          sx: {
+            width: "60px",
+            maxWidth: "120px",
+            fontSize: '0.8rem',
+            letterSpacing: '1px',
+            textTransform: 'uppercase',
+            color: '#0c0f0a',
+            paddingTop: '0.5rem',
+            borderRight: '1px solid #e0e0e0',
+            lineHeight: '120%',
+            '& .Mui-TableHeadCell-Content': {
+              display: 'block',
+              '& .Mui-TableHeadCell-Content-Labels': {
+                display: 'inline',
+                '& .Mui-TableHeadCell-Content-Wrapper': {
+                  textOverflow: 'unset',
+                  whiteSpace: 'pre-wrap'
+                },
+                '& .MuiBadge-root': {
+                  height: '28px'
+                }
+              },
+              '& .Mui-TableHeadCell-Content-Actions': {
+                display: 'inline',
+                float: 'left',
+                '& button:last-of-type svg': {
+                  transform: 'rotate(90deg)'
+                }
+              }
+            },
+          }
+        }}
+        muiTableBodyCellProps={{
+          sx: {
+            fontSize: '0.8rem',
+            color: '#0c0f0a',
+            borderRight: '1px solid #e0e0e0',
+            textAlign: 'center',
           }
         }}
         muiTableBodyRowDragHandleProps={({ table }) => ({

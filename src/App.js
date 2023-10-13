@@ -7,13 +7,19 @@ const App = (props) => {
   const theme = {
     palette: {
       primary: {
-        main: '#ff9800'
+        main: '#41ead4'
       },
       background: {
         default: '#ffffff'
       },
       secondary: {
-        main: '#eefcfa'
+        main: '#ff6b6b'
+      },
+      warning: {
+        main: '#fbff12'
+      },
+      text: {
+        main: '#0c0f0a'
       }
     },
     typography: {
@@ -29,8 +35,8 @@ const App = (props) => {
         styleOverrides: {
           root: {
             '&.MuiTableRow-root:hover td': { 
-                backgroundColor: '#eefcfa',
-            }
+                backgroundColor: '#eefcfa'
+            } 
           } 
         }
       }
