@@ -2,8 +2,6 @@ import { useMemo, useState } from 'react';
 import { MaterialReactTable } from 'material-react-table';
 import { MRT_Localization_FR } from 'material-react-table/locales/fr';
 import { MRT_Localization_EN } from 'material-react-table/locales/en';
-import logo from './logo.svg';
-import './App.css';
 
 
 function Table({ locale, initData }) {
@@ -64,6 +62,8 @@ function Table({ locale, initData }) {
         enableRowOrdering
         enableDensityToggle={false}
         enablePagination={false}
+        enableTopToolbar={false}
+        enableBottomToolbar={false}
         initialState={{ density: 'compact' }}
         localization={locale === 'fr' ? MRT_Localization_FR : MRT_Localization_EN}
         muiTablePaperProps={{

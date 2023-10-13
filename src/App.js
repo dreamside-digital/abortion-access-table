@@ -1,4 +1,4 @@
-import { createTheme, ThemeProvider, useTheme } from '@mui/material';
+import { createTheme, ThemeProvider } from '@mui/material';
 import { frFR, enUS } from '@mui/material/locale';
 import Table from './Table';
 
