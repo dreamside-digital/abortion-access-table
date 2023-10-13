@@ -3,45 +3,164 @@ import ReactDOM from 'react-dom/client';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
-
 const initData = [
-  {
-    province: 'AB',
-    totalproviders: 11,
-    hospitals: 1,
-    clinics: 10,
-    surgical: 4,
-    medical: 7,
-    urban: 8,
-    rural: 3,
-    gestationallimit: 24,
-    cpc: 21
-  },
-  {
-    province: 'BC',
-    totalproviders: 24,
-    hospitals: 10,
-    clinics: 14,
-    surgical: 13,
-    medical: 12,
-    urban: 10,
-    rural: 14,
-    gestationallimit: 28,
-    cpc: 26
-  },
-  {
-    province: 'MB',
-    totalproviders: 4,
-    hospitals: 2,
-    clinics: 2,
-    surgical: 3,
-    medical: 4,
-    urban: 2,
-    rural: 2,
-    gestationallimit: 20,
-    cpc: 5
-  },
-];
+        {
+            "totalproviders": "11",
+            "clinics": "10",
+            "medical": "7",
+            "urban": "8",
+            "cpc": "21",
+            "province": "AB",
+            "hospitals": "1",
+            "rural": "3",
+            "gestationallimit": "24",
+            "surgical": "4"
+        },
+        {
+            "totalproviders": "24",
+            "clinics": "14",
+            "medical": "12",
+            "urban": "10",
+            "cpc": "26",
+            "province": "BC",
+            "hospitals": "10",
+            "rural": "14",
+            "gestationallimit": "28",
+            "surgical": "13"
+        },
+        {
+            "totalproviders": "4",
+            "clinics": "2",
+            "medical": "4",
+            "urban": "2",
+            "cpc": "5",
+            "province": "MB",
+            "hospitals": "2",
+            "rural": "2",
+            "gestationallimit": "20",
+            "surgical": "3"
+        },
+        {
+            "totalproviders": "5",
+            "clinics": "2",
+            "medical": "2",
+            "urban": "4",
+            "cpc": "6",
+            "province": "NB",
+            "hospitals": "3",
+            "rural": "1",
+            "gestationallimit": "16 ",
+            "surgical": "4"
+        },
+        {
+            "totalproviders": "4",
+            "clinics": "2",
+            "medical": "3",
+            "urban": "2",
+            "cpc": "1",
+            "province": "NL",
+            "hospitals": "2",
+            "rural": "2",
+            "gestationallimit": "16",
+            "surgical": "3"
+        },
+        {
+            "totalproviders": "3",
+            "clinics": "1",
+            "medical": "2",
+            "urban": "3",
+            "cpc": "0",
+            "province": "NS",
+            "hospitals": "2",
+            "rural": "1",
+            "gestationallimit": "20",
+            "surgical": "2"
+        },
+        {
+            "totalproviders": "4",
+            "clinics": "1",
+            "medical": "2",
+            "urban": "1",
+            "cpc": "5",
+            "province": "NT",
+            "hospitals": "3",
+            "rural": "2",
+            "gestationallimit": "20",
+            "surgical": "3"
+        },
+        {
+            "totalproviders": "1",
+            "clinics": "0",
+            "medical": "1",
+            "urban": "1",
+            "cpc": "0",
+            "province": "NU",
+            "hospitals": "1",
+            "rural": "0",
+            "gestationallimit": "17",
+            "surgical": "1"
+        },
+        {
+            "totalproviders": "54",
+            "clinics": "36",
+            "medical": "35",
+            "urban": "41",
+            "cpc": "71",
+            "province": "ON",
+            "hospitals": "18",
+            "rural": "13",
+            "gestationallimit": "34",
+            "surgical": "22"
+        },
+        {
+            "totalproviders": "1",
+            "clinics": "1",
+            "medical": "1",
+            "urban": "1",
+            "cpc": "3",
+            "province": "PE",
+            "hospitals": "0",
+            "rural": "0",
+            "gestationallimit": "15",
+            "surgical": "1"
+        },
+        {
+            "totalproviders": "50",
+            "clinics": "32",
+            "medical": "23",
+            "urban": "37",
+            "cpc": "10",
+            "province": "QC",
+            "hospitals": "18",
+            "rural": "13",
+            "gestationallimit": "24",
+            "surgical": "48"
+        },
+        {
+            "totalproviders": "5",
+            "clinics": "3",
+            "medical": "3",
+            "urban": "5",
+            "cpc": "5",
+            "province": "SK",
+            "hospitals": "2",
+            "rural": "0",
+            "gestationallimit": "19",
+            "surgical": "3"
+        },
+        {
+            "totalproviders": "1",
+            "clinics": "1",
+            "medical": "1",
+            "urban": "1",
+            "cpc": "0",
+            "province": "YT",
+            "hospitals": "0",
+            "rural": "0",
+            "gestationallimit": "15 ",
+            "surgical": "1"
+        }
+    ]
 
 const dataSource = document.querySelectorAll('#jurisdictions-list .jurisdiction-item');
 const tableData = [...dataSource].map(el => Object.assign({}, el.dataset))
@@ -50,7 +169,7 @@ console.log({tableData})
 const root = ReactDOM.createRoot(document.getElementById('abortion-access-table'));
 root.render(
   <React.StrictMode>
-    <App locale={'en'} initData={tableData} />
+    <App locale={'en'} initData={tableData.length > 0 ? tableData : initData} />
   </React.StrictMode>
 );
 

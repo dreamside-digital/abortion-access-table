@@ -25,7 +25,7 @@ function Table({ locale, initData }) {
       },
       {
         accessorKey: 'totalproviders',
-        header: 'Total providers',
+        header: 'Total providers*',
         size: 60,
         maxSize: 100,
       },
@@ -55,13 +55,13 @@ function Table({ locale, initData }) {
       },
       {
         accessorKey: 'urban',
-        header: 'Urban providers',
+        header: 'Urban providers**',
         size: 60,
         maxSize: 100,
       },
       {
         accessorKey: 'rural',
-        header: 'Rural providers',
+        header: 'Rural providers**',
         size: 60,
         maxSize: 100,
       },
@@ -73,7 +73,7 @@ function Table({ locale, initData }) {
       },
       {
         accessorKey: 'cpc',
-        header: 'Crisis pregnancy centres',
+        header: 'Crisis pregnancy centres***',
         size: 60,
         maxSize: 100,
       },
