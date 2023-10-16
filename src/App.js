@@ -7,7 +7,7 @@ const App = (props) => {
   const theme = {
     palette: {
       primary: {
-        main: '#41ead4'
+        main: '#7EF1E1'
       },
       background: {
         default: '#ffffff'
@@ -16,7 +16,7 @@ const App = (props) => {
         main: '#ff6b6b'
       },
       warning: {
-        main: '#fbff12'
+        main: '#A30054'
       },
       text: {
         main: '#0c0f0a'
