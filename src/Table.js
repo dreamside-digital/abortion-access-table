@@ -2,6 +2,23 @@ import { useMemo, useState } from 'react';
 import { MaterialReactTable } from 'material-react-table';
 import { MRT_Localization_FR } from 'material-react-table/locales/fr';
 import { MRT_Localization_EN } from 'material-react-table/locales/en';
+import Box from '@mui/material/Box';
+import Tooltip, { tooltipClasses } from '@mui/material/Tooltip';
+import { styled } from '@mui/material/styles';
+
+const LightTooltip = styled(({ className, ...props }) => (
+  <Tooltip {...props} classes={{ popper: className }} />
+))(({ theme }) => ({
+  [`& .${tooltipClasses.tooltip}`]: {
+    backgroundColor: '#fafbfe',
+    color: '#112953',
+    boxShadow: '1px 1px 8px 1px rgba(45, 62, 80, .12)',
+    fontSize: 12.5,
+    padding: 10,
+    border: '1px solid #d8e3f0',
+    lineHeight: 1.5,
+  },
+}));
 
 const thStyles = (icon) => {
   return {
@@ -61,8 +78,8 @@ function Table({ locale, initData }) {
       {
         accessorKey: 'province',
         header: 'Province/ Territory',
-        size: 60,
-        maxSize: 100,
+        size: 100,
+        maxSize: 160,
         muiTableBodyCellProps: {
           sx: {
             fontWeight: 600,
@@ -77,65 +94,85 @@ function Table({ locale, initData }) {
       },
       {
         accessorKey: 'totalproviders',
-        header: 'Total providers*',
-        size: 60,
-        maxSize: 100,
+        header: 'Total points of service*',
+        size: 100,
+        maxSize: 160,
+        Header: ({header, column, table}) => {
+          return (
+            <Box component="span">
+              <LightTooltip title="Data on the points of service, which includes clinics and hospitals that provide abortion care, are gathered from Action Canada’s directory. These numbers are up to date, but the landscape of abortion providers changes quickly, and not all providers consent to being publicly listed.  As such, current data is not comprehensive and does not include all primary care providers who prescribe medication abortion.">
+                <span>{column.columnDef.header}</span>
+              </LightTooltip>
+            </Box>
+          )
+        },
         muiTableHeadCellProps: thStyles('https://uploads-ssl.webflow.com/64b1dfac6e37c1447451236d/652d81b8b20a43e88d5429fc_total-providers.svg')
       },
       {
-        accessorKey: 'hospitals',
-        header: 'Hospitals providing abortion care',
-        size: 60,
-        maxSize: 100,
-        muiTableHeadCellProps: thStyles('https://uploads-ssl.webflow.com/64b1dfac6e37c1447451236d/652d81b4dc55d21dd872eb75_hospital.svg')
-      },
-      {
-        accessorKey: 'clinics',
-        header: 'Clinics providing abortion care',
-        size: 60,
-        maxSize: 100,
-        muiTableHeadCellProps: thStyles('https://uploads-ssl.webflow.com/64b1dfac6e37c1447451236d/652d81b4220ac45e6f6181ae_clinics.svg')
-      },
-      {
-        accessorKey: 'surgical',
-        header: 'Surgical providers',
-        size: 60,
-        maxSize: 100,
-        muiTableHeadCellProps: thStyles('https://uploads-ssl.webflow.com/64b1dfac6e37c1447451236d/652d81b64cd486ddc9494fdd_surgical.svg')
-      },
-      {
-        accessorKey: 'medical',
-        header: 'Medical providers',
-        size: 60,
-        maxSize: 100,
-        muiTableHeadCellProps: thStyles('https://uploads-ssl.webflow.com/64b1dfac6e37c1447451236d/652d81b5f53a53c34de0e393_medical.svg')
-      },
-      {
         accessorKey: 'urban',
-        header: 'Urban providers**',
-        size: 60,
-        maxSize: 100,
+        header: 'Urban points of service **',
+        size: 100,
+        maxSize: 160,
+        Header: ({header, column, table}) => {
+          return (
+            <Box component="span">
+              <LightTooltip 
+                title={
+                  <span>2021 Canadian census. Urban as defined by <a href="https://www150.statcan.gc.ca/n1/pub/92-195-x/2021001/geo/cma-rmr/cma-rmr-eng.htm">Statistics Canada</a>. Providers located more than a two hour drive away from an urban location are categorized as rural.</span>
+                }
+              >
+                <span>{column.columnDef.header}</span>
+              </LightTooltip>
+            </Box>
+          )
+        },
         muiTableHeadCellProps: thStyles('https://uploads-ssl.webflow.com/64b1dfac6e37c1447451236d/652d81b77562483ec3cea528_urban.svg')
       },
       {
         accessorKey: 'rural',
-        header: 'Rural providers**',
-        size: 60,
-        maxSize: 100,
+        header: 'Rural points of service**',
+        size: 100,
+        maxSize: 160,
+        Header: ({header, column, table}) => {
+          return (
+            <Box component="span">
+              <LightTooltip 
+                title={
+                  <span>2021 Canadian census. Urban as defined by <a href="https://www150.statcan.gc.ca/n1/pub/92-195-x/2021001/geo/cma-rmr/cma-rmr-eng.htm">Statistics Canada</a>. Providers located more than a two hour drive away from an urban location are categorized as rural.</span>
+                }
+              >
+                <span>{column.columnDef.header}</span>
+              </LightTooltip>
+            </Box>
+          )
+        },
         muiTableHeadCellProps: thStyles('https://uploads-ssl.webflow.com/64b1dfac6e37c1447451236d/652d81b76bb8924b3c7bcd0d_rural.svg')
       },
       {
         accessorKey: 'gestationallimit',
-        header: 'Gestational limit',
-        size: 60,
-        maxSize: 100,
+        header: 'Functional gestational limit',
+        size: 100,
+        maxSize: 160,
         muiTableHeadCellProps: thStyles('https://uploads-ssl.webflow.com/64b1dfac6e37c1447451236d/652d81b4e32f25fcc3e98a88_gestational-limit.svg')
       },
       {
         accessorKey: 'cpc',
         header: 'Crisis pregnancy centres***',
-        size: 60,
-        maxSize: 100,
+        size: 100,
+        maxSize: 160,
+        Header: ({header, column, table}) => {
+          return (
+            <Box component="span">
+              <LightTooltip 
+                title={
+                  <span>Data from the <a href="https://www.arcc-cdac.ca/media/2020/06/list-anti-choice-groups-province-city.pdf">Abortion Rights Coalition of Canada</a></span>
+                }
+              >
+                <span>{column.columnDef.header}</span>
+              </LightTooltip>
+            </Box>
+          )
+        },
         muiTableHeadCellProps: thStyles('https://uploads-ssl.webflow.com/64b1dfac6e37c1447451236d/652d81b4220ac45e6f6181a6_cpc.svg')
       },
     ],
