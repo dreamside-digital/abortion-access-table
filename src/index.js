@@ -12,7 +12,7 @@ const initData = [
             "province": "AB",
             "hospitals": "1",
             "rural": "3",
-            "gestationallimit": "24",
+            "gestationallimit": "24 weeks",
             "surgical": "4"
         },
         {
@@ -24,7 +24,7 @@ const initData = [
             "province": "BC",
             "hospitals": "10",
             "rural": "14",
-            "gestationallimit": "28",
+            "gestationallimit": "28 weeks",
             "surgical": "13"
         },
         {
@@ -36,7 +36,7 @@ const initData = [
             "province": "MB",
             "hospitals": "2",
             "rural": "2",
-            "gestationallimit": "20",
+            "gestationallimit": "20 weeks",
             "surgical": "3"
         },
         {
@@ -48,7 +48,7 @@ const initData = [
             "province": "NB",
             "hospitals": "3",
             "rural": "1",
-            "gestationallimit": "16 ",
+            "gestationallimit": "16 weeks",
             "surgical": "4"
         },
         {
@@ -60,7 +60,7 @@ const initData = [
             "province": "NL",
             "hospitals": "2",
             "rural": "2",
-            "gestationallimit": "16",
+            "gestationallimit": "16 weeks",
             "surgical": "3"
         },
         {
@@ -72,7 +72,7 @@ const initData = [
             "province": "NS",
             "hospitals": "2",
             "rural": "1",
-            "gestationallimit": "20",
+            "gestationallimit": "20 weeks",
             "surgical": "2"
         },
         {
@@ -84,7 +84,7 @@ const initData = [
             "province": "NT",
             "hospitals": "3",
             "rural": "2",
-            "gestationallimit": "20",
+            "gestationallimit": "20 weeks",
             "surgical": "3"
         },
         {
@@ -96,7 +96,7 @@ const initData = [
             "province": "NU",
             "hospitals": "1",
             "rural": "0",
-            "gestationallimit": "17",
+            "gestationallimit": "17 weeks",
             "surgical": "1"
         },
         {
@@ -108,7 +108,7 @@ const initData = [
             "province": "ON",
             "hospitals": "18",
             "rural": "13",
-            "gestationallimit": "34",
+            "gestationallimit": "34 weeks",
             "surgical": "22"
         },
         {
@@ -120,7 +120,7 @@ const initData = [
             "province": "PE",
             "hospitals": "0",
             "rural": "0",
-            "gestationallimit": "15",
+            "gestationallimit": "15 weeks",
             "surgical": "1"
         },
         {
@@ -132,7 +132,7 @@ const initData = [
             "province": "QC",
             "hospitals": "18",
             "rural": "13",
-            "gestationallimit": "24",
+            "gestationallimit": "24 weeks",
             "surgical": "48"
         },
         {
@@ -144,7 +144,7 @@ const initData = [
             "province": "SK",
             "hospitals": "2",
             "rural": "0",
-            "gestationallimit": "19",
+            "gestationallimit": "19 weeks",
             "surgical": "3"
         },
         {
@@ -156,19 +156,22 @@ const initData = [
             "province": "YT",
             "hospitals": "0",
             "rural": "0",
-            "gestationallimit": "15 ",
+            "gestationallimit": "15 weeks + 3 days",
             "surgical": "1"
         }
     ]
 
+const rootEl = document.getElementById('abortion-access-table')
+const locale = rootEl.dataset.locale
 const dataSource = document.querySelectorAll('#jurisdictions-list .jurisdiction-item');
 const tableData = [...dataSource].map(el => Object.assign({}, el.dataset))
 console.log({tableData})
+console.log({locale})
 
-const root = ReactDOM.createRoot(document.getElementById('abortion-access-table'));
+const root = ReactDOM.createRoot(rootEl);
 root.render(
   <React.StrictMode>
-    <App locale={'en'} initData={tableData.length > 0 ? tableData : initData} />
+    <App locale={locale} initData={tableData.length > 0 ? tableData : initData} />
   </React.StrictMode>
 );
 

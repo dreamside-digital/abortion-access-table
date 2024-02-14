@@ -6,6 +6,49 @@ import Box from '@mui/material/Box';
 import Tooltip, { tooltipClasses } from '@mui/material/Tooltip';
 import { styled } from '@mui/material/styles';
 
+const translations = {
+  province: {
+    en: 'Province/ Territory',
+    fr: 'Province/ territoire'
+  },
+  totalproviders: {
+    en: 'Total points of service*',
+    fr: 'Nombre total de prestataires*'
+  },
+  urban: {
+    en: 'Urban points of service*',
+    fr: 'Prestataires en région urbaine*'
+  },
+  rural: {
+    en: 'Rural points of service*',
+    fr: 'Prestataires en région rurale*'
+  },
+  gestationallimit: {
+    en: 'Functional gestational limit*',
+    fr: 'Limite gestationnelle*'
+  },
+  cpc: {
+    en: 'Crisis pregnancy centres*',
+    fr: 'Centres de crise de grossesse*'
+  },
+  providerstooltip: {
+    en: "Data on the points of service, which includes clinics and hospitals that provide abortion care, are gathered from Action Canada’s directory. These numbers are up to date, but the landscape of abortion providers changes quickly, and not all providers consent to being publicly listed.  As such, current data is not comprehensive and does not include all primary care providers who prescribe medication abortion.",
+    fr: "Data on the points of service, which includes clinics and hospitals that provide abortion care, are gathered from Action Canada’s directory. These numbers are up to date, but the landscape of abortion providers changes quickly, and not all providers consent to being publicly listed.  As such, current data is not comprehensive and does not include all primary care providers who prescribe medication abortion."
+  },
+  regiontooltip: {
+    en: <span>2021 Canadian census. Urban as defined by <a href="https://www150.statcan.gc.ca/n1/pub/92-195-x/2021001/geo/cma-rmr/cma-rmr-eng.htm">Statistics Canada</a>. Providers located more than a two hour drive away from an urban location are categorized as rural.</span>,
+    fr: <span>2021 Canadian census. Urban as defined by <a href="https://www150.statcan.gc.ca/n1/pub/92-195-x/2021001/geo/cma-rmr/cma-rmr-eng.htm">Statistics Canada</a>. Providers located more than a two hour drive away from an urban location are categorized as rural.</span>
+  },
+  cpctooltip: {
+    en: <span>Data from the <a href="https://www.arcc-cdac.ca/media/2020/06/list-anti-choice-groups-province-city.pdf">Abortion Rights Coalition of Canada</a></span>,
+    fr: <span>Data from the <a href="https://www.arcc-cdac.ca/media/2020/06/list-anti-choice-groups-province-city.pdf">Abortion Rights Coalition of Canada</a></span>
+  },
+  gltooltip: {
+    en: <span>Read more about <a href="/barriers-to-abortion-access#gestational-age-limits">gestational limits</a></span>,
+    fr: <span>Read more about <a href="/barriers-to-abortion-access#gestational-age-limits">gestational limits</a></span>
+  }
+}
+
 const LightTooltip = styled(({ className, ...props }) => (
   <Tooltip {...props} classes={{ popper: className }} />
 ))(({ theme }) => ({
@@ -72,12 +115,12 @@ const thStyles = (icon) => {
 }
 
 
-function Table({ locale, initData }) {
+function Table({ locale="en", initData }) {
   const columns = useMemo(
     () => [
       {
         accessorKey: 'province',
-        header: 'Province/ Territory',
+        header: translations['province'][locale],
         size: 100,
         maxSize: 160,
         muiTableBodyCellProps: {
@@ -94,13 +137,13 @@ function Table({ locale, initData }) {
       },
       {
         accessorKey: 'totalproviders',
-        header: 'Total points of service*',
+        header: translations['totalproviders'][locale],
         size: 100,
         maxSize: 160,
         Header: ({header, column, table}) => {
           return (
             <Box component="span">
-              <LightTooltip title="Data on the points of service, which includes clinics and hospitals that provide abortion care, are gathered from Action Canada’s directory. These numbers are up to date, but the landscape of abortion providers changes quickly, and not all providers consent to being publicly listed.  As such, current data is not comprehensive and does not include all primary care providers who prescribe medication abortion.">
+              <LightTooltip title={translations['providerstooltip'][locale]}>
                 <span>{column.columnDef.header}</span>
               </LightTooltip>
             </Box>
@@ -110,17 +153,13 @@ function Table({ locale, initData }) {
       },
       {
         accessorKey: 'urban',
-        header: 'Urban points of service **',
+        header: translations['urban'][locale],
         size: 100,
         maxSize: 160,
         Header: ({header, column, table}) => {
           return (
             <Box component="span">
-              <LightTooltip 
-                title={
-                  <span>2021 Canadian census. Urban as defined by <a href="https://www150.statcan.gc.ca/n1/pub/92-195-x/2021001/geo/cma-rmr/cma-rmr-eng.htm">Statistics Canada</a>. Providers located more than a two hour drive away from an urban location are categorized as rural.</span>
-                }
-              >
+              <LightTooltip title={translations['regiontooltip'][locale]}>
                 <span>{column.columnDef.header}</span>
               </LightTooltip>
             </Box>
@@ -130,17 +169,13 @@ function Table({ locale, initData }) {
       },
       {
         accessorKey: 'rural',
-        header: 'Rural points of service**',
+        header: translations['rural'][locale],
         size: 100,
         maxSize: 160,
         Header: ({header, column, table}) => {
           return (
             <Box component="span">
-              <LightTooltip 
-                title={
-                  <span>2021 Canadian census. Urban as defined by <a href="https://www150.statcan.gc.ca/n1/pub/92-195-x/2021001/geo/cma-rmr/cma-rmr-eng.htm">Statistics Canada</a>. Providers located more than a two hour drive away from an urban location are categorized as rural.</span>
-                }
-              >
+              <LightTooltip title={translations['regiontooltip'][locale]}>
                 <span>{column.columnDef.header}</span>
               </LightTooltip>
             </Box>
@@ -150,24 +185,29 @@ function Table({ locale, initData }) {
       },
       {
         accessorKey: 'gestationallimit',
-        header: 'Functional gestational limit',
-        size: 100,
-        maxSize: 160,
-        muiTableHeadCellProps: thStyles('https://uploads-ssl.webflow.com/64b1dfac6e37c1447451236d/652d81b4e32f25fcc3e98a88_gestational-limit.svg')
-      },
-      {
-        accessorKey: 'cpc',
-        header: 'Crisis pregnancy centres***',
+        header: translations['gestationallimit'][locale],
         size: 100,
         maxSize: 160,
         Header: ({header, column, table}) => {
           return (
             <Box component="span">
-              <LightTooltip 
-                title={
-                  <span>Data from the <a href="https://www.arcc-cdac.ca/media/2020/06/list-anti-choice-groups-province-city.pdf">Abortion Rights Coalition of Canada</a></span>
-                }
-              >
+              <LightTooltip title={translations['gltooltip'][locale]}>
+                <span>{column.columnDef.header}</span>
+              </LightTooltip>
+            </Box>
+          )
+        },
+        muiTableHeadCellProps: thStyles('https://uploads-ssl.webflow.com/64b1dfac6e37c1447451236d/652d81b4e32f25fcc3e98a88_gestational-limit.svg')
+      },
+      {
+        accessorKey: 'cpc',
+        header: translations['cpc'][locale],
+        size: 100,
+        maxSize: 160,
+        Header: ({header, column, table}) => {
+          return (
+            <Box component="span">
+              <LightTooltip title={translations['cpctooltip'][locale]}>
                 <span>{column.columnDef.header}</span>
               </LightTooltip>
             </Box>
