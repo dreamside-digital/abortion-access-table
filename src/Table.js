@@ -25,7 +25,7 @@ const translations = {
   },
   gestationallimit: {
     en: 'Functional gestational limit*',
-    fr: 'Limite gestationnelle*'
+    fr: 'Limite gestationnelle fonctionnelle*'
   },
   cpc: {
     en: 'Crisis pregnancy centres*',
@@ -33,19 +33,19 @@ const translations = {
   },
   providerstooltip: {
     en: "Data on the points of service, which includes clinics and hospitals that provide abortion care, are gathered from Action Canada’s directory. These numbers are up to date, but the landscape of abortion providers changes quickly, and not all providers consent to being publicly listed.  As such, current data is not comprehensive and does not include all primary care providers who prescribe medication abortion.",
-    fr: "Data on the points of service, which includes clinics and hospitals that provide abortion care, are gathered from Action Canada’s directory. These numbers are up to date, but the landscape of abortion providers changes quickly, and not all providers consent to being publicly listed.  As such, current data is not comprehensive and does not include all primary care providers who prescribe medication abortion."
+    fr: "Les données sur les points de service, qui comprennent les cliniques et les hôpitaux publics qui fournissent des soins d’avortement, sont tirées du répertoire d’Action Canada. Ces chiffres sont à jour, mais le paysage des prestataires de services d’avortement change rapidement et les prestataires de soins ne consentent pas tou·te·s à être répertorié·e·s publiquement. Ainsi, les données actuelles ne sont pas complètes et n’incluent pas tou·te·s les prestataires de soins primaires qui prescrivent l’avortement par médicaments."
   },
   regiontooltip: {
     en: <span>2021 Canadian census. Urban as defined by <a href="https://www150.statcan.gc.ca/n1/pub/92-195-x/2021001/geo/cma-rmr/cma-rmr-eng.htm">Statistics Canada</a>. Providers located more than a two hour drive away from an urban location are categorized as rural.</span>,
-    fr: <span>2021 Canadian census. Urban as defined by <a href="https://www150.statcan.gc.ca/n1/pub/92-195-x/2021001/geo/cma-rmr/cma-rmr-eng.htm">Statistics Canada</a>. Providers located more than a two hour drive away from an urban location are categorized as rural.</span>
+    fr: <span>Recensement de 2021 au Canada. « Urbain » tel que défini par <a href="https://www150.statcan.gc.ca/n1/pub/92-195-x/2021001/geo/cma-rmr/cma-rmr-eng.htm">Statistique Canada</a>. Les prestataires situé⋅e⋅s à plus de deux heures de route d’un centre urbain sont classé⋅e⋅s comme étant en milieu rural.</span>
   },
   cpctooltip: {
     en: <span>Data from the <a href="https://www.arcc-cdac.ca/media/2020/06/list-anti-choice-groups-province-city.pdf">Abortion Rights Coalition of Canada</a></span>,
-    fr: <span>Data from the <a href="https://www.arcc-cdac.ca/media/2020/06/list-anti-choice-groups-province-city.pdf">Abortion Rights Coalition of Canada</a></span>
+    fr: <span>Liste de groupes anti-choix au Canada. (18 avril 2023). <a href="https://www.arcc-cdac.ca/media/2020/06/list-anti-choice-groups-province-city.pdf">Coalition pour le droit à l’avortement au Canada</a></span>
   },
   gltooltip: {
-    en: <span>Read more about <a href="/barriers-to-abortion-access#gestational-age-limits">gestational limits</a></span>,
-    fr: <span>Read more about <a href="/barriers-to-abortion-access#gestational-age-limits">gestational limits</a></span>
+    en: <span>Read more about <a href="/barriers-to-abortion-access#gestational-age-limits">functional gestational limits</a></span>,
+    fr: <span>En savoir plus sur <a href="/fr/barriers-to-abortion-access#gestational-age-limits">les limites gestationnelles fonctionnelles</a></span>
   }
 }
 

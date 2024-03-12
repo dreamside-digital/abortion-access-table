@@ -165,8 +165,6 @@ const rootEl = document.getElementById('abortion-access-table')
 const locale = rootEl.dataset.locale
 const dataSource = document.querySelectorAll('#jurisdictions-list .jurisdiction-item');
 const tableData = [...dataSource].map(el => Object.assign({}, el.dataset))
-console.log({tableData})
-console.log({locale})
 
 const root = ReactDOM.createRoot(rootEl);
 root.render(
