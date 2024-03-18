@@ -66,7 +66,7 @@ const LightTooltip = styled(({ className, ...props }) => (
 const thStyles = (icon) => {
   return {
     sx: {
-      width: "60px",
+      width: "66px",
       maxWidth: "120px",
       fontSize: '0.8rem',
       letterSpacing: '1px',
@@ -246,7 +246,7 @@ function Table({ locale="en", initData }) {
         }}
         muiTableHeadCellProps={{
           sx: {
-            width: "60px",
+            width: "66px",
             maxWidth: "120px",
             fontSize: '0.8rem',
             letterSpacing: '1px',
