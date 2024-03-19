@@ -36,8 +36,8 @@ const translations = {
     fr: "Les données sur les points de service, qui comprennent les cliniques et les hôpitaux publics qui fournissent des soins d’avortement, sont tirées du répertoire d’Action Canada. Ces chiffres sont à jour, mais le paysage des prestataires de services d’avortement change rapidement et les prestataires de soins ne consentent pas tou·te·s à être répertorié·e·s publiquement. Ainsi, les données actuelles ne sont pas complètes et n’incluent pas tou·te·s les prestataires de soins primaires qui prescrivent l’avortement par médicaments."
   },
   regiontooltip: {
-    en: <span>2021 Canadian census. Urban as defined by <a href="https://www150.statcan.gc.ca/n1/pub/92-195-x/2021001/geo/cma-rmr/cma-rmr-eng.htm">Statistics Canada</a>. Providers located more than a two hour drive away from an urban location are categorized as rural.</span>,
-    fr: <span>Recensement de 2021 au Canada. « Urbain » tel que défini par <a href="https://www150.statcan.gc.ca/n1/pub/92-195-x/2021001/geo/cma-rmr/cma-rmr-eng.htm">Statistique Canada</a>. Les prestataires situé⋅e⋅s à plus de deux heures de route d’un centre urbain sont classé⋅e⋅s comme étant en milieu rural.</span>
+    en: <span>Urban refers to census metropolitan areas and agglomerations (CMAs and CAs) in Canada. Rural refers to areas outside of CMAs and CAs.</span>,
+    fr: <span>Le terme « urbain » désigne les régions métropolitaines de recensement (RMR) et les agglomérations de recensement (AR) au Canada. Le terme « rural » fait référence aux régions situées en dehors des RMR et des AR.</span>
   },
   cpctooltip: {
     en: <span>Data from the <a href="https://www.arcc-cdac.ca/media/2020/06/list-anti-choice-groups-province-city.pdf">Abortion Rights Coalition of Canada</a></span>,
